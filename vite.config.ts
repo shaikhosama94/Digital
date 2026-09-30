@@ -4,10 +4,9 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
-  const repoName = process.env.GITHUB_REPOSITORY
-    ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
-    : './';
-  const base = process.env.VITE_BASE_PATH || repoName;
+  // Use relative base './' by default so the build works whether hosted at
+  // https://shaikhosama94.github.io/, a custom domain, or a repo subfolder.
+  const base = process.env.VITE_BASE_PATH || './';
 
   return {
     base,
