@@ -107,13 +107,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAudit, onOpenResume }) => {
                   
                   {/* Photo & Identity Lockup */}
                   <div className="flex items-center gap-5 pb-5 border-b border-neutral-800/80">
-                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-neutral-700 shrink-0 bg-neutral-800">
+                    <div className="relative w-22 h-22 sm:w-26 sm:h-26 rounded-2xl overflow-hidden border-2 border-amber-400/40 shrink-0 bg-neutral-900 shadow-xl shadow-amber-400/10 group">
                       <img
                         src={osamaPortrait}
-                        alt="Shaikh Osama portrait"
+                        alt="Shaikh Osama"
                         referrerPolicy="no-referrer"
-                        className="w-full h-full object-cover object-top"
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                       />
+                      <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
                     </div>
                     <div>
                       <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight font-display">

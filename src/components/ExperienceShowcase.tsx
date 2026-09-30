@@ -47,25 +47,43 @@ export const ExperienceShowcase: React.FC = () => {
                     <div className="absolute left-0 top-3 bottom-3 w-1 bg-amber-400 rounded-r" />
                   )}
 
-                  <div className="flex items-start justify-between">
-                    <div>
-                      {/* Quiet Unboxed Metadata */}
-                      <div className="flex items-center gap-2 text-xs font-mono text-neutral-400 mb-1">
-                        <span className="text-amber-400 font-semibold">{String(index + 1).padStart(2, '0')}</span>
-                        <span aria-hidden="true">·</span>
-                        <span>{exp.period}</span>
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      {/* Company Logo Thumbnail */}
+                      <div className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-700/80 p-1 flex items-center justify-center shrink-0 overflow-hidden">
+                        {exp.logo ? (
+                          <img
+                            src={exp.logo}
+                            alt={`${exp.company} logo`}
+                            referrerPolicy="no-referrer"
+                            className="w-full h-full object-contain"
+                          />
+                        ) : (
+                          <div className="w-full h-full rounded bg-[#004B87] flex flex-col items-center justify-center font-bold text-white text-[10px]">
+                            <span className="text-amber-300">KE</span>
+                          </div>
+                        )}
                       </div>
 
-                      <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
-                        {exp.company}
-                      </h3>
-                      <p className="text-xs text-neutral-300 mt-0.5">
-                        {exp.role}
-                      </p>
+                      <div>
+                        {/* Quiet Unboxed Metadata */}
+                        <div className="flex items-center gap-2 text-xs font-mono text-neutral-400 mb-0.5">
+                          <span className="text-amber-400 font-semibold">{String(index + 1).padStart(2, '0')}</span>
+                          <span aria-hidden="true">·</span>
+                          <span>{exp.period}</span>
+                        </div>
+
+                        <h3 className="text-base font-bold text-white group-hover:text-amber-300 transition-colors">
+                          {exp.company}
+                        </h3>
+                        <p className="text-xs text-neutral-300">
+                          {exp.role}
+                        </p>
+                      </div>
                     </div>
 
                     <ChevronRight
-                      className={`w-5 h-5 transition-transform ${
+                      className={`w-5 h-5 shrink-0 transition-transform ${
                         isSelected ? 'text-amber-400 translate-x-1' : 'text-neutral-600 group-hover:text-neutral-400'
                       }`}
                     />
@@ -84,18 +102,35 @@ export const ExperienceShowcase: React.FC = () => {
             
             {/* Top Bar for Selected Role */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-neutral-800">
-              <div>
-                <div className="flex items-center gap-2 text-xs font-mono text-neutral-400 mb-1">
-                  <span>{activeExp.location}</span>
-                  <span aria-hidden="true">·</span>
-                  <span className="text-amber-400">{activeExp.period}</span>
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-xl bg-neutral-900 border border-neutral-700/80 p-1.5 flex items-center justify-center shrink-0 overflow-hidden shadow-lg">
+                  {activeExp.logo ? (
+                    <img
+                      src={activeExp.logo}
+                      alt={`${activeExp.company} logo`}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-contain"
+                    />
+                  ) : (
+                    <div className="w-full h-full rounded bg-[#004B87] flex flex-col items-center justify-center font-bold text-white text-xs">
+                      <span className="text-amber-300">KE</span>
+                    </div>
+                  )}
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">
-                  {activeExp.company}
-                </h3>
-                <p className="text-sm font-medium text-amber-300 mt-0.5">
-                  {activeExp.role}
-                </p>
+
+                <div>
+                  <div className="flex items-center gap-2 text-xs font-mono text-neutral-400 mb-1">
+                    <span>{activeExp.location}</span>
+                    <span aria-hidden="true">·</span>
+                    <span className="text-amber-400">{activeExp.period}</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white font-display">
+                    {activeExp.company}
+                  </h3>
+                  <p className="text-sm font-medium text-amber-300 mt-0.5">
+                    {activeExp.role}
+                  </p>
+                </div>
               </div>
 
               <button

@@ -6,6 +6,8 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { CompanyLogosBar } from './components/CompanyLogosBar';
+import { PortfolioWorksSection } from './components/PortfolioWorksSection';
 import { ExperienceShowcase } from './components/ExperienceShowcase';
 import { ServicesBento } from './components/ServicesBento';
 import { AuditSimulator } from './components/AuditSimulator';
@@ -40,6 +42,12 @@ export default function App() {
           onOpenAudit={scrollToAudit}
           onOpenResume={() => setIsResumeOpen(true)}
         />
+
+        {/* Verified Company Logos & Brands Worked With */}
+        <CompanyLogosBar />
+
+        {/* Featured Client Work & Campaigns (Google Drive Portfolio Showcase) */}
+        <PortfolioWorksSection />
 
         {/* Professional Experience Dossier */}
         <ExperienceShowcase />

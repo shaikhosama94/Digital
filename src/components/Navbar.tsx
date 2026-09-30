@@ -20,10 +20,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume, onOpenAudit }) => 
   }, []);
 
   const navLinks = [
-    { label: 'Work', href: '#experience' },
+    { label: 'Companies', href: '#companies' },
+    { label: 'Portfolio', href: '#portfolio-work' },
+    { label: 'Experience', href: '#experience' },
     { label: 'Capabilities', href: '#capabilities' },
-    { label: 'SEO Audit Tool', href: '#audit-tool' },
-    { label: 'SERP Lab', href: '#serp-lab' },
+    { label: 'Audit Tool', href: '#audit-tool' },
     { label: 'Credentials', href: '#credentials' },
     { label: 'Contact', href: '#contact' },
   ];

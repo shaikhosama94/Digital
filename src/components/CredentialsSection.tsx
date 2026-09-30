@@ -1,6 +1,6 @@
 import React from 'react';
-import { CERTIFICATIONS, EDUCATION, ACHIEVEMENTS, SKILL_GROUPS } from '../data/portfolioData';
-import { Award, GraduationCap, Trophy, CheckCircle, ExternalLink, Code2, ShieldCheck } from 'lucide-react';
+import { CERTIFICATIONS, EDUCATION, ACHIEVEMENTS, SKILL_GROUPS, hubspotCertImg } from '../data/portfolioData';
+import { Award, GraduationCap, Trophy, CheckCircle, ExternalLink, Code2, ShieldCheck, CheckCircle2 } from 'lucide-react';
 
 export const CredentialsSection: React.FC = () => {
   return (
@@ -32,6 +32,29 @@ export const CredentialsSection: React.FC = () => {
               </h3>
             </div>
 
+            {/* HubSpot Official Verification Badge Banner */}
+            <div className="p-3.5 rounded-xl bg-gradient-to-r from-orange-500/10 via-amber-500/10 to-transparent border border-orange-500/30 flex items-center gap-3.5 mb-3">
+              <div className="w-12 h-12 rounded-lg bg-black border border-orange-500/40 p-1 shrink-0 overflow-hidden">
+                <img
+                  src={hubspotCertImg}
+                  alt="HubSpot Academy Certified"
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-orange-400 font-bold block">
+                  Official HubSpot Academy
+                </span>
+                <span className="text-xs font-bold text-white block mt-0.5">
+                  Social Media & Inbound Certified
+                </span>
+                <span className="text-[10px] text-neutral-400 font-mono">
+                  Verified In Credentials Folder
+                </span>
+              </div>
+            </div>
+
             <div className="space-y-3">
               {CERTIFICATIONS.map((cert, idx) => (
                 <div
@@ -47,13 +70,19 @@ export const CredentialsSection: React.FC = () => {
                         {cert.name}
                       </h4>
                     </div>
-                    <span className="text-[11px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded border border-emerald-400/20">
+                    <span className="text-[11px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded border border-emerald-400/20 shrink-0">
                       Verified
                     </span>
                   </div>
                   <p className="text-xs text-neutral-400 mt-2 leading-relaxed">
                     {cert.focus}
                   </p>
+                  {cert.credentialId && (
+                    <div className="mt-2.5 pt-2 border-t border-neutral-800/60 flex items-center gap-1.5 text-[10px] font-mono text-neutral-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span className="truncate">{cert.credentialId}</span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
